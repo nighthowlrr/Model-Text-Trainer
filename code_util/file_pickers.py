@@ -6,11 +6,13 @@ def pick_folder(title="Select a folder", print_title=True):
         print(title)
     root = tk.Tk()
     root.withdraw()
-    return filedialog.askdirectory(title=title)
+    folder = filedialog.askdirectory(title=title)
+    return folder if folder else None
 
 def pick_file(title="Select a file", print_title=True, filetypes=(("All Files", "*.*"),)):
     if print_title:
         print(title)
     root = tk.Tk()
     root.withdraw()
-    return filedialog.askopenfilename(title=title, filetypes=filetypes)
+    filename = filedialog.askopenfilename(title=title, filetypes=filetypes)
+    return filename if filename else None

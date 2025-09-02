@@ -4,10 +4,14 @@ from code_util.file_pickers import pick_file
 
 def validate_jsonl():
     parser = argparse.ArgumentParser(description="Validate JSONL training file")
-    parser.add_argument("--train-file", type=str, required=False, help="Location of training data file")
+    parser.add_argument("--train_file", type=str, required=False, help="Location of training data file")
     args = parser.parse_args()
 
-    jsonl_file = args.file or pick_file("Select training data file...", True, [("JSONL Files", "*.jsonl")])
+    jsonl_file = args.train_file or pick_file("Select training data file...", True, [("JSONL Files", "*.jsonl")])
+
+    if jsonl_file is None:
+        print("No training data file selected. Exiting...")
+        exit(1)
 
     error_count = 0
     print(f"Validating {jsonl_file}...")
