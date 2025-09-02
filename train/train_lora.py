@@ -54,7 +54,7 @@ def main():
     peft_model = get_peft_model(model, lora_config)
 
     def preprocess(batch):
-        prompt = get_model_instructions() + f":\n{batch['input']}\n\nSummary:"
+        prompt = f"Summarize the following text into a structured lesson with clear, concise paragraphs.\n{batch['input']}\n\nSummary:"
         tokenized = tokenizer(prompt, truncation=True, padding="max_length", max_length=1024)
         labels = tokenizer(batch["output"], truncation=True, padding="max_length", max_length=1024)
         tokenized["labels"] = labels["input_ids"]
