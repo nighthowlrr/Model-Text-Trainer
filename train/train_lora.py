@@ -9,8 +9,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 from code_util.file_pickers import pick_folder, pick_file
 
 def main():
-    print("=== Train LoRA ===")
-
     parser = argparse.ArgumentParser(description="Train LoRA")
     parser.add_argument("--base_model", type=str, required=False, help="Path to local base model or HuggingFace ID of model")
     parser.add_argument("--train_file", type=str, required=False, help="Location of training data file")
@@ -108,7 +106,8 @@ def main():
     tokenizer.save_pretrained(output_dir)
 
     print(f"\nTraining complete! Model + tokenizer saved to: {output_dir}")
-    print("==================")
 
 if __name__ == "__main__":
+    print("=== Train LoRA ===")
     main()
+    print("==================")

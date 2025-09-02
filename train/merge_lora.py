@@ -8,8 +8,6 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from code_util.file_pickers import pick_folder
 
 def main():
-    print("=== Merge LoRA ===")
-
     parser = argparse.ArgumentParser(description='Merge LoRA adapter into base model and save merged model')
     parser.add_argument("--base_model", type=str, help="Path to local base model or HuggingFace Id of model")
     parser.add_argument("--lora_dir", type=str, help="Path to trained LoRA adapter")
@@ -51,7 +49,8 @@ def main():
     tokenizer.save_pretrained(output_dir)
 
     print(f"\nLoRA merged successfully! Saved to {output_dir}")
-    print("==================")
 
 if __name__ == "__main__":
+    print("=== Merge LoRA ===")
     main()
+    print("==================")
