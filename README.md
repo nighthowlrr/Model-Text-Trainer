@@ -1,0 +1,88 @@
+# Model-Text-Trainer
+
+## Overview
+This portable project contains scripts for training, merging, and running inference with language models, 
+specifically focusing on LoRA (Low-Rank Adaptation) fine-tuning.
+
+This was created for training models to summarize text in my personal style of writing.
+
+## Key Features
+- **LoRA Fine-tuning**: Script for training LoRA adapters to fine-tune language models on specific tasks. 
+- **LoRA Merging**: Script for merging trained LoRA adapters into the base language model.
+- **HuggingFace Inference**: Support for running inference directly with HuggingFace format models.
+- **GGUF Conversion and Quantization**: (*IN PROGRESS*)
+  - Script for converting HuggingFace format models to GGUF (FP16) format.
+  - Script for quantizing GGUF models to lower precision for efficient CPU/GPU inference.
+- **GGUF Inference**: Support for running inference with quantized GGUF models.
+
+
+- **Download Models from HuggingFace**: Script for downloading models from HuggingFace.
+- **.JSONL tools**: Scripts for turning data into `.JSONL` format, and validating your `training_data.JSONL` file.
+
+---
+
+## Prerequisites and Dependencies
+- **Python**: Version 3.12.* is recommended.
+- **pip**
+
+The following packages are required for running the scripts, as listed in [`requirements.txt`](requirements.txt):
+- `datasets == 4.0.0`, 
+- `huggingface-hub == 0.34.4`, 
+- `llama-cpp-python == 0.3.16`, 
+- `peft == 0.17.1`, 
+- `torch == 2.8.0`, 
+- `transformers == 4.56.0`
+
+## Installation & Setup Instructions
+1. Clone the repository:
+    ```
+    git clone https://github.com/nighthowlrr/Model-Text-Trainer.git
+    cd Model-Text-Trainer 
+    ```
+2. Create a virtual environment (recommended):
+    ```
+    python -m venv venv
+    source venv/bin/activate  # On Linux/macOS
+    venv\Scripts\activate  # On Windows
+    ```
+3. Install required dependencies:
+    ```
+    pip install -r requirements.txt
+    ```
+
+## Usage
+TODO
+
+---
+
+## Roadmap
+- [ ] Scripts for converting HuggingFace format models to GGUF (FP16) format. (*IN PROGRESS*)
+- [ ] Scripts for quantizing GGUF models to lower precision for efficient CPU/GPU inference. (*IN PROGRESS*)
+- [ ] `main.py` Entrypoint script to run training, merging, and inference easily from the command line. (*NEXT*) 
+- [ ] Automatic hardware detection for training and inference optimization.
+- [ ] `defaults.yaml` Default configuration file for easily running the whole workflow without manually entering arguments everytime.
+  - Scripts will follow this pattern: `CLI args > defaults.yaml > user input` (user input when no defaults and args provided)
+- [ ] Support for distributed training on multiple GPUs. 
+- [ ] Add an evaluation pipeline (ROUGE, BLEU) for summaries output by the model.
+  - Explained (by ChatGPT) in more detail in [these notes](notes/Evaluation-Pipeline-GPT-Explain.md)
+- [ ] Add JSON schema validation to be followed by `training_data.jsonl` during data prep.
+  - Additional layer of validating `training_data.jsonl` on top of `validate_jsonl.py` script.
+  - Benefit: Enforces structure and field types for `training_data.jsonl`
+
+## Contributing
+This is currently a personal project. Contributions are not being accepted at this time.
+
+## License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+This project leverages the following excellent open-source libraries:
+* [PEFT](https://github.com/huggingface/peft) — Parameter-Efficient Fine-Tuning methods
+* [Transformers](https://github.com/huggingface/transformers) — State-of-the-art machine learning models
+* [PyTorch](https://pytorch.org/) — Deep learning framework
+* [Datasets](https://github.com/huggingface/datasets) — Data processing for machine learning
+* [Hugging Face Hub](https://github.com/huggingface/huggingface_hub) — Model and dataset repository
+* [llama-cpp-python](https://github.com/abetlen/llama-cpp-python) — Python bindings for llama.cpp
+
+Special thanks to the HuggingFace team for their incredible ecosystem of ML tools.
