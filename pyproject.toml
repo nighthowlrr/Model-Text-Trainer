@@ -1,0 +1,7 @@
+[project]
+name = "Model-Text-Trainer"
+version = "0.1.0"
+requires-python = "==3.12.*"
+
+[tool.pip]
+requirements = "requirements.txt" # lock dependencies
