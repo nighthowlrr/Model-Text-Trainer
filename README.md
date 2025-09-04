@@ -19,6 +19,13 @@ This was created for training models to summarize text in my personal style of w
 - **Download Models from HuggingFace**: Script for downloading models from HuggingFace.
 - **.JSONL tools**: Scripts for turning data into `.JSONL` format, and validating your `training_data.JSONL` file.
 
+## Design standards
+- Python libraries are packaged as wheels, so if any library is removed from pip, the project will still run. (*IN PROGRESS*) 
+- There is minimal reliance on system-wide tools and installations (e.g., CMake, Make, global python packages)
+- Every script that accepts CLI args supports `--help` with clear argument docs.
+- Every script that accepts CLI args can run without any arguments, as the script will ask the user for input.
+- All scripts are self-contained inside the project and can run without other scripts.
+
 ---
 
 ## Prerequisites and Dependencies
@@ -56,18 +63,11 @@ TODO
 ---
 
 ## Roadmap
-- [ ] Scripts for converting HuggingFace format models to GGUF (FP16) format. (*IN PROGRESS*)
-- [ ] Scripts for quantizing GGUF models to lower precision for efficient CPU/GPU inference. (*IN PROGRESS*)
-- [ ] `main.py` Entrypoint script to run training, merging, and inference easily from the command line. (*NEXT*) 
-- [ ] Automatic hardware detection for training and inference optimization.
-- [ ] `defaults.yaml` Default configuration file for easily running the whole workflow without manually entering arguments everytime.
-  - Scripts will follow this pattern: `CLI args > defaults.yaml > user input` (user input when no defaults and args provided)
-- [ ] Support for distributed training on multiple GPUs. 
-- [ ] Add an evaluation pipeline (ROUGE, BLEU) for summaries output by the model.
-  - Explained (by ChatGPT) in more detail in [these notes](notes/Evaluation-Pipeline-GPT-Explain.md)
-- [ ] Add JSON schema validation to be followed by `training_data.jsonl` during data prep.
-  - Additional layer of validating `training_data.jsonl` on top of `validate_jsonl.py` script.
-  - Benefit: Enforces structure and field types for `training_data.jsonl`
+A detailed roadmap is available [here](notes/Detailed-To-Do.md).
+
+Task currently in progress:
+- [ ] Script for converting a HuggingFace format model into GGUF format.
+- [ ] Script for quantizing a GGUF model to lower precision for efficient CPU/GPU inference.
 
 ## Contributing
 This is currently a personal project. Contributions are not being accepted at this time.
@@ -76,7 +76,6 @@ This is currently a personal project. Contributions are not being accepted at th
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
-
 This project leverages the following excellent open-source libraries:
 * [PEFT](https://github.com/huggingface/peft) — Parameter-Efficient Fine-Tuning methods
 * [Transformers](https://github.com/huggingface/transformers) — State-of-the-art machine learning models
