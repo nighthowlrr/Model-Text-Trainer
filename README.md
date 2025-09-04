@@ -4,14 +4,15 @@
 This portable project contains scripts for training, merging, and running inference with language models, 
 specifically focusing on LoRA (Low-Rank Adaptation) fine-tuning.
 
-This was created for training models to summarize text in my personal style of writing.
+This was created for training models to summarize text in my personal style of writing, 
+but this can be used to train any model using any `.JSONL` training file.
 
 ## Key Features
 - **LoRA Fine-tuning**: Script for training LoRA adapters to fine-tune language models on specific tasks. 
 - **LoRA Merging**: Script for merging trained LoRA adapters into the base language model.
 - **HuggingFace Inference**: Support for running inference directly with HuggingFace format models.
 - **GGUF Conversion and Quantization**: (*IN PROGRESS*)
-  - Script for converting HuggingFace format models to GGUF (FP16) format.
+  - Script for converting HuggingFace format models to GGUF format.
   - Script for quantizing GGUF models to lower precision for efficient CPU/GPU inference.
 - **GGUF Inference**: Support for running inference with quantized GGUF models.
 
