@@ -3,7 +3,8 @@ apply: always
 ---
 
 # Project-specific Rules
-- All scripts must be self-contained inside the project, meaning no script must rely on another script in the project to complete its task, unless absolutely necessary, and even then, first confirm from me beforehand. 
+- All scripts must be self-contained inside the project, meaning no script must rely on another script in the project to complete its task, unless absolutely necessary, and even then, first confirm from me beforehand.
+- Each script must be about only one task. No script should handle multiple tasks, and that increases the complexity of the script, and we value simplicity in this project.
 - Always try to have minimal reliance on system-wide installations or packages (e.g., cmake, make, global Python packages). 
 - Everything must run from inside the project directory (Python dependencies in requirements.txt).
 - Always prefer Python dependencies when available instead of shelling out to binaries. Always confirm that a dependency isn't available before choosing to shell out to binaries.
