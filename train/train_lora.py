@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--output_dir", type=str, required=False, help="Where to save the LoRA adapter")
     args = parser.parse_args()
 
-    base_model = (args.base_model or input("Enter local path to base model or HuggingFace ID of model (e.g. Qwen/Qwen2.5-1.5B-Instruct)")
+    base_model = (args.base_model or input("Enter local path to base model or HuggingFace ID of model (e.g. Qwen/Qwen2.5-1.5B-Instruct): ")
                   .strip())
 
     train_file = args.train_file or pick_file("Select training data file...", True,
@@ -97,7 +97,7 @@ def main():
         train_dataset=tokenized_dataset,
         data_collator=data_collator
     )
-    trainer.args.dataloader_pin_memory = pin_memory;
+    trainer.args.dataloader_pin_memory = pin_memory
 
     trainer.train()
 

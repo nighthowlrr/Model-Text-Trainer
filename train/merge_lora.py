@@ -1,4 +1,5 @@
 import argparse
+import os
 from pathlib import Path
 
 from peft import PeftModel
@@ -14,8 +15,7 @@ def main():
     parser.add_argument("--output_dir", type=str, help="Where to save the merged model")
     args = parser.parse_args()
 
-    base_model = (args.base_model or input("Enter local path to base model or HuggingFace ID of model (e.g. Qwen/Qwen2.5-1.5B-Instruct): ")
-                  .strip())
+    base_model = args.base_model or input("Enter local path to base model or HuggingFace ID of model (e.g. Qwen/Qwen2.5-1.5B-Instruct): ").strip()
     lora_adapter = args.lora_dir or pick_folder("Select folder with trained LoRA adapter...")
     given_output_dir = args.output_dir or pick_folder("Select output folder...")
 
@@ -32,7 +32,7 @@ def main():
 
     print("1/4: Loading base model...")
     model = AutoModelForCausalLM.from_pretrained(
-        args.base_model,
+        base_model,
         dtype=torch.float16,
         device_map="cpu"
     )

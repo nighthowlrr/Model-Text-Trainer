@@ -1,6 +1,10 @@
-datasets == 4.0.0
+datasets == 3.6.0
 huggingface-hub == 0.34.4
 llama-cpp-python == 0.3.16
 peft == 0.17.1
 torch == 2.8.0
 transformers == 4.56.0
+unsloth == 2025.9.1
+gguf-converter == 0.3.1
+
+pip == 25.2
