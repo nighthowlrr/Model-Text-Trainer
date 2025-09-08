@@ -86,3 +86,5 @@ This project leverages the following excellent open-source libraries:
 * [llama-cpp-python](https://github.com/abetlen/llama-cpp-python) — Python bindings for llama.cpp
 
 Special thanks to the HuggingFace team for their incredible ecosystem of ML tools.
+
+***TODO***: Add credits for vendored llama.cpp `convert_hf_to_gguf.py` script and `gguf` package
